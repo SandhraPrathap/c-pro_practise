@@ -1,7 +1,7 @@
 #include <stdio.h>
 int main() {
 int k=0,l,b,x=1;
-printf("Enter l and b");
+printf("Enter l and b\n");
     scanf("%d%d",&l,&b);
     
     for(int i=0;k<l;i++)
