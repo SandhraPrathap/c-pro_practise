@@ -1,21 +1,11 @@
-
-#include <stdio.h>
-#include <string.h>
-#include <math.h>
 #include <stdlib.h>
-
-int main() {
-int i,j,k,l,n;
-    scanf("%d",&n);
-    for(i=0;i<n;i++)
-    {for(j=0;j<i+1;j++)
-    {for(k=0;k<=j;k++)
-        printf(" ");
-     printf("\\");
-            printf("\n");}
-
-            if(j=i+1)
-            {for(l=0;l<k;l++)
-             printf("-");
-            printf("\\");
-                   printf("\n");}}}
+#include <stdio.h>
+void main()
+{  char num[8];int a,product=1;
+    scanf("%s", num);
+    a =atoi(num);    
+   while (a!=0){
+    product*=a%10;
+    a/=10;}
+    printf("%d\n",product);
+}
