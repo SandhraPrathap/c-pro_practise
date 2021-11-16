@@ -1,14 +1,20 @@
 #include <stdio.h>
 void main()
 {
-    int a[5][5], i, j, t = 1, b, m = 0, n = 0;
+    int a[5][5];
+    int i, j, t = 0, b, m = 0, n = 0, d = 0, o = 0;
     for (i = 0; i < 5; i++)
     {
         for (j = 0; j < 5; j++)
             scanf("%d", &a[i][j]);
     }
-    while (t)
+    while (1)
     {
+        d = 0;
+        o = 0;
+        m = 0;
+        t = 0;
+        n = 0;
         printf("Player 1");
         scanf("%d", &b);
         for (i = 0; i < 5; i++)
@@ -31,57 +37,58 @@ void main()
                     break;
                 }
         }
-
         for (i = 0; i < 5; i++)
         {
+            t = 0;
+            m = 0;
             for (j = 0; j < 5; j++)
             {
                 if (a[i][j] == 0)
                     m++;
-
                 if (m == 5)
                 {
-                    n++;
-                    m = 0;
-                }
-            }
-            m = 0;
-            if (n == 5)
-            {
-                printf("Bingo\n");
-                t = 0;
-            }
-        }
-        for (j = 0; j < 5; j++)
-        {
-            for (i = 0; i < 5; i++)
-            {
-                if (a[i][j] == 0)
-                    m++;
 
-                if (m == 5)
+                    n++;
+                }
+                if (a[j][i] == 0)
+                    t++;
+                if (t == 5)
                 {
+
                     n++;
-                    printf("%d", n);
-                    m = 0;
+                }
+                if (a[i][i] == 0)
+                {
+                    d++;
+                }
+                if (d == 25)
+                {
+
+                    n++;
+                }
+                if (a[i][4-i] == 0)
+                {
+                    o++;
+                }
+                if (o == 25)
+                {
+
+                    n++;
                 }
             }
-            m = 0;
-            if (n == 5)
-            {
-                printf("Bingo\n");
-                t = 0;
-            }
         }
-    }
 
-    
-    for (i = 0; i < 5; i++)
-    {
-        for (j = 0; j < 5; j++)
+        printf("%d\n", n);
+        if (n == 5)
+            break;
+        for (i = 0; i < 5; i++)
         {
-            printf("%d ", a[i][j]);
+            for (j = 0; j < 5; j++)
+            {
+                printf("%d ", a[i][j]);
+            }
+            printf("\n");
         }
-        printf("\n");
     }
+    printf("Bingo\n");
 }
